@@ -2,253 +2,640 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Metodología</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>Metodología</title>
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, sans-serif;
       background: #f4f7fb;
-      margin: 0;
+      color: #222;
+      line-height: 1.7;
     }
 
     header {
-      background: #1e3a8a;
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
       color: white;
       text-align: center;
-      padding: 30px;
+      padding: 40px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    header h1 {
+      font-size: 2.7rem;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: white;
+      padding: 12px;
+      border-bottom: 1px solid #d9e2f2;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1e3a8a;
+      background: #e8f0ff;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 0.92rem;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: #cfe0ff;
     }
 
     main {
-      padding: 20px;
-      max-width: 1100px;
-      margin: auto;
+      max-width: 1150px;
+      margin: 30px auto;
+      padding: 0 20px 40px;
+    }
+
+    .portada {
+      background: white;
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      border-left: 8px solid #2563eb;
+    }
+
+    .portada h2 {
+      color: #1e3a8a;
+      margin-bottom: 12px;
+    }
+
+    .grid-temas {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
     }
 
     .tema {
       background: white;
-      margin-bottom: 20px;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
     }
 
     .tema img {
       width: 100%;
-      border-radius: 10px;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      background: #dbe7ff;
+    }
+
+    .tema-contenido {
+      padding: 22px;
+    }
+
+    .tema h2 {
+      color: #1e3a8a;
+      margin-bottom: 12px;
+      font-size: 1.5rem;
+    }
+
+    .tema p {
+      text-align: justify;
+      margin-bottom: 12px;
+    }
+
+    .organizador {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .box {
+      background: #f1f6ff;
+      border: 1px solid #d6e5ff;
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .box h3 {
+      color: #1e3a8a;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .fuentes {
+      background: white;
+      border-radius: 18px;
+      padding: 24px;
+      margin-top: 28px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    .fuentes h2 {
+      color: #1e3a8a;
+      margin-bottom: 12px;
+    }
+
+    .fuentes ul {
+      padding-left: 20px;
+    }
+
+    .fuentes li {
       margin-bottom: 10px;
     }
 
-    h2 {
-      color: #1e3a8a;
+    .fuentes a {
+      color: #2563eb;
+      word-break: break-word;
     }
 
-    p {
-      text-align: justify;
+    footer {
+      background: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 18px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .tema img {
+        height: 220px;
+      }
     }
   </style>
 </head>
-
 <body>
 
-<header>
-  <h1>Metodología</h1>
-  <p>Temas de metodología de la investigación explicados de forma clara y sencilla</p>
-</header>
+  <header>
+    <h1>Metodología</h1>
+  </header>
 
-<main>
+  <nav>
+    <ul>
+      <li><a href="#educacion">Educación y ciencia</a></li>
+      <li><a href="#etica">Ciencia y ética</a></li>
+      <li><a href="#epistemologia">Epistemología</a></li>
+      <li><a href="#clases">Clases de epistemología</a></li>
+      <li><a href="#social">Ciencia social</a></li>
+      <li><a href="#cientificidad">Cientificidad</a></li>
+      <li><a href="#busqueda">Búsqueda de información</a></li>
+      <li><a href="#reporte">Fuentes bibliográficas</a></li>
+      <li><a href="#apa">Normas APA</a></li>
+      <li><a href="#deductivo">Método deductivo</a></li>
+      <li><a href="#inductivo">Método inductivo</a></li>
+      <li><a href="#inductivo-deductivo">Inductivo-deductivo</a></li>
+      <li><a href="#hipotetico">Hipotético-deductivo</a></li>
+      <li><a href="#analitico">Método analítico</a></li>
+      <li><a href="#sintetico">Método sintético</a></li>
+      <li><a href="#analitico-sintetico">Analítico-sintético</a></li>
+      <li><a href="#historico">Histórico-comparativo</a></li>
+      <li><a href="#cualitativo">Cualitativo-cuantitativo</a></li>
+    </ul>
+  </nav>
 
-  <div class="tema">
-    <img src="https://source.unsplash.com/800x400/?education,science">
-    <h2>Educación y ciencia</h2>
-    <p>
-      La educación y la ciencia están muy relacionadas porque ambas ayudan al desarrollo de las personas. 
-      La educación permite aprender conocimientos que ya existen, mientras que la ciencia se encarga de descubrir cosas nuevas. 
-      Gracias a esto, las personas pueden entender mejor el mundo que las rodea. 
-      Además, cuando se combinan, ayudan a mejorar la calidad de vida, ya que permiten encontrar soluciones a problemas sociales y económicos.
-    </p>
-  </div>
+  <main>
+    <section class="portada">
+      <h2>Introducción</h2>
+      <p>
+        La metodología de la investigación es una parte importante del estudio porque ayuda a ordenar el trabajo y a comprender mejor un tema. 
+        Gracias a ella, una persona puede buscar información, analizarla, compararla y presentar sus ideas con mayor claridad. 
+        También permite evitar el desorden al momento de investigar, ya que ofrece pasos y métodos que sirven de guía.
+      </p>
+      <p>
+        En esta página se presentan varios temas de la materia de metodología de una forma sencilla y más entendible. 
+        La idea es explicar cada punto con palabras claras, sin hacerlo complicado, para que se pueda comprender mejor su importancia dentro del proceso de investigación.
+      </p>
+    </section>
 
-  <div class="tema">
-    <img src="https://source.unsplash.com/800x400/?ethics,science">
-    <h2>Ciencia y ética</h2>
-    <p>
-      La ciencia siempre debe ir acompañada de la ética, porque no todo lo que se puede investigar es correcto hacerlo. 
-      La ética ayuda a que las investigaciones se realicen con respeto hacia las personas y la sociedad. 
-      También evita que se manipulen resultados o se haga daño a otros. 
-      Por eso, es importante que los investigadores actúen con responsabilidad y honestidad en todo momento.
-    </p>
-  </div>
+    <section class="grid-temas">
 
-  <div class="tema">
-    <img src="https://source.unsplash.com/800x400/?books,knowledge">
-    <h2>Concepto de epistemología</h2>
-    <p>
-      La epistemología es el estudio del conocimiento, es decir, analiza cómo las personas llegan a saber algo. 
-      Se interesa por entender de dónde vienen las ideas, cómo se comprueban y cuándo pueden considerarse verdaderas. 
-      Este tema es importante porque permite reflexionar sobre lo que aprendemos y cómo lo hacemos. 
-      En pocas palabras, ayuda a entender cómo funciona el conocimiento.
-    </p>
-  </div>
+      <article class="tema" id="educacion">
+        <img src="img/educacion.jpg" alt="Educación y ciencia">
+        <div class="tema-contenido">
+          <h2>Educación y ciencia</h2>
+          <p>
+            La educación y la ciencia se relacionan porque las dos ayudan al crecimiento de las personas y de la sociedad. 
+            La educación permite transmitir conocimientos, valores y experiencias, mientras que la ciencia busca descubrir, explicar y comprobar hechos de la realidad. 
+            Cuando ambas trabajan juntas, el aprendizaje no se queda solo en memorizar, sino que también impulsa a pensar, observar y cuestionar.
+          </p>
+          <p>
+            La educación forma a las personas desde temprana edad y la ciencia aporta herramientas para entender mejor el mundo. 
+            Por ejemplo, gracias a la ciencia se pueden explicar fenómenos naturales, sociales o económicos, y por medio de la educación esos conocimientos llegan a los estudiantes. 
+            Por eso, se puede decir que la ciencia produce conocimiento y la educación lo comparte y lo fortalece.
+          </p>
+          <div class="organizador">
+            <div class="box">
+              <h3>Idea principal</h3>
+              <p>La educación enseña y la ciencia ayuda a descubrir y comprender.</p>
+            </div>
+            <div class="box">
+              <h3>Importancia</h3>
+              <p>Juntas mejoran el aprendizaje, la reflexión y la solución de problemas.</p>
+            </div>
+            <div class="box">
+              <h3>Ejemplo</h3>
+              <p>En clases se estudian conocimientos científicos para entender mejor la realidad.</p>
+            </div>
+          </div>
+        </div>
+      </article>
 
-  <div class="tema">
-    <img src="https://source.unsplash.com/800x400/?thinking,study">
-    <h2>Clases de epistemología</h2>
-    <p>
-      Existen diferentes clases de epistemología dependiendo del enfoque que se utilice. 
-      Algunas se enfocan en las ciencias naturales, otras en las ciencias sociales y otras en el análisis del conocimiento en general. 
-      Estas diferentes formas permiten ver el conocimiento desde distintos puntos de vista. 
-      Gracias a esto, se puede entender mejor cómo se construyen las ideas en cada área.
-    </p>
-  </div>
+      <article class="tema" id="etica">
+        <img src="img/etica.jpg" alt="Ciencia y ética">
+        <div class="tema-contenido">
+          <h2>Ciencia y ética</h2>
+          <p>
+            La ciencia no debe separarse de la ética, porque investigar no significa hacer cualquier cosa sin límites. 
+            La ética orienta el trabajo científico para que se realice con respeto, honestidad y responsabilidad. 
+            Esto es importante porque muchas investigaciones pueden afectar a personas, comunidades o incluso al ambiente si no se hacen de manera correcta.
+          </p>
+          <p>
+            Actuar con ética significa no copiar, no falsificar resultados, no engañar y no perjudicar a otros. 
+            También significa reconocer el trabajo de otros autores y usar la información de forma responsable. 
+            En la investigación, la ética da confianza y demuestra que el trabajo fue realizado de manera seria.
+          </p>
+          <div class="organizador">
+            <div class="box">
+              <h3>¿Qué busca?</h3>
+              <p>Que la investigación sea correcta y respete a las personas.</p>
+            </div>
+            <div class="box">
+              <h3>Valores</h3>
+              <p>Honestidad, respeto, responsabilidad y transparencia.</p>
+            </div>
+            <div class="box">
+              <h3>Resultado</h3>
+              <p>Trabajos más confiables y con mayor valor académico.</p>
+            </div>
+          </div>
+        </div>
+      </article>
 
-  <div class="tema">
-    <img src="https://source.unsplash.com/800x400/?society,people">
-    <h2>Concepto de ciencia social</h2>
-    <p>
-      La ciencia social estudia el comportamiento de las personas dentro de la sociedad. 
-      Analiza temas como la economía, la cultura, la educación y la política. 
-      Su objetivo es entender cómo viven las personas y cómo se relacionan entre sí. 
-      También busca identificar problemas sociales para poder plantear posibles soluciones.
-    </p>
-  </div>
+      <article class="tema" id="epistemologia">
+        <img src="img/epistemologia.jpg" alt="Concepto de epistemología">
+        <div class="tema-contenido">
+          <h2>Concepto de epistemología</h2>
+          <p>
+            La epistemología es la rama que estudia el conocimiento. 
+            Se interesa en saber cómo se obtiene, cómo se construye y cómo se puede comprobar que algo es válido. 
+            En otras palabras, ayuda a reflexionar sobre el origen de las ideas y sobre las bases que hacen que una información sea aceptada como conocimiento.
+          </p>
+          <p>
+            Este tema es importante porque no todo lo que se dice o se cree puede tomarse como verdadero. 
+            La epistemología ayuda a distinguir entre una opinión, una creencia y un conocimiento que tiene fundamento. 
+            Por eso, es una base importante dentro de la investigación, ya que permite analizar de qué manera se llega a una conclusión.
+          </p>
+          <div class="organizador">
+            <div class="box">
+              <h3>Se enfoca en</h3>
+              <p>Cómo conocemos y cómo sabemos que algo es verdadero o válido.</p>
+            </div>
+            <div class="box">
+              <h3>Sirve para</h3>
+              <p>Entender mejor el valor del conocimiento en la investigación.</p>
+            </div>
+          </div>
+        </div>
+      </article>
 
-  <div class="tema">
-    <img src="https://source.unsplash.com/800x400/?history,society">
-    <h2>Cientificidad de las ciencias sociales</h2>
-    <p>
-      Las ciencias sociales han buscado ser consideradas científicas desde sus inicios. 
-      Para lograrlo, han utilizado métodos organizados y basados en la observación de la realidad. 
-      Aunque estudian a las personas, también buscan analizar datos de forma clara y ordenada. 
-      Esto permite que sus resultados tengan mayor validez y puedan ser utilizados en diferentes estudios.
-    </p>
-  </div>
+      <article class="tema" id="clases">
+        <img src="img/clases-epistemologia.jpg" alt="Clases de epistemología">
+        <div class="tema-contenido">
+          <h2>Clases de epistemología</h2>
+          <p>
+            Existen distintas maneras de estudiar el conocimiento, y por eso se habla de clases de epistemología. 
+            Algunas se enfocan más en las ciencias naturales, otras en las ciencias sociales y otras en el análisis general del pensamiento humano. 
+            Cada una busca explicar cómo se construye el conocimiento dentro de su área.
+          </p>
+          <p>
+            Esto permite comprender que no todas las ciencias trabajan exactamente igual. 
+            Por ejemplo, una investigación de laboratorio no se desarrolla de la misma manera que un estudio sobre el comportamiento de una comunidad. 
+            Aun así, ambas necesitan bases claras para poder explicar cómo obtuvieron sus resultados.
+          </p>
+          <div class="organizador">
+            <div class="box">
+              <h3>Tipos generales</h3>
+              <p>Ciencias naturales, ciencias sociales y enfoque general del conocimiento.</p>
+            </div>
+            <div class="box">
+              <h3>Importancia</h3>
+              <p>Ayuda a entender que cada área conoce y explica la realidad de forma diferente.</p>
+            </div>
+          </div>
+        </div>
+      </article>
 
-  <div class="tema">
-    <img src="https://source.unsplash.com/800x400/?research,computer">
-    <h2>Búsqueda de información en bases de datos</h2>
-    <p>
-      Buscar información en bases de datos es una parte importante de la investigación. 
-      Estas bases contienen artículos, libros y estudios confiables. 
-      Utilizarlas ayuda a encontrar información más segura y actualizada. 
-      Además, permite mejorar la calidad del trabajo, ya que se basa en fuentes reales y verificadas.
-    </p>
-  </div>
+      <article class="tema" id="social">
+        <img src="img/ciencia-social.jpg" alt="Concepto de ciencia social">
+        <div class="tema-contenido">
+          <h2>Concepto de ciencia social</h2>
+          <p>
+            La ciencia social es el conjunto de estudios que analizan al ser humano dentro de la sociedad. 
+            Su interés está en observar cómo viven las personas, cómo se relacionan y qué problemas aparecen en su entorno. 
+            Dentro de esta área se estudian temas como la economía, la política, la educación, la cultura, la familia y la comunicación.
+          </p>
+          <p>
+            Estas ciencias son muy útiles porque ayudan a comprender situaciones que afectan a la vida diaria. 
+            Gracias a ellas se pueden analizar problemas sociales, desigualdades, formas de convivencia y cambios dentro de una comunidad. 
+            También permiten proponer ideas o soluciones para mejorar ciertas realidades.
+          </p>
+        </div>
+      </article>
 
-  <div class="tema">
-    <img src="https://source.unsplash.com/800x400/?books,library">
-    <h2>Reporte de fuentes bibliográficas</h2>
-    <p>
-      El reporte de fuentes bibliográficas consiste en indicar de dónde se obtuvo la información. 
-      Esto es importante porque demuestra que el trabajo es serio y bien hecho. 
-      También permite que otras personas puedan consultar esas fuentes si lo desean. 
-      Es una forma de dar crédito a los autores y evitar el plagio.
-    </p>
-  </div>
+      <article class="tema" id="cientificidad">
+        <img src="img/cientificidad.jpg" alt="Cientificidad de las ciencias sociales">
+        <div class="tema-contenido">
+          <h2>Cientificidad de las ciencias sociales en sus inicios</h2>
+          <p>
+            Desde sus primeros desarrollos, las ciencias sociales buscaron ser reconocidas como ciencias. 
+            Para lograrlo, intentaron trabajar con orden, observación, análisis y comparación de hechos reales. 
+            Aunque estudian personas y sociedades, también se apoyan en métodos que permiten organizar la información y sacar conclusiones.
+          </p>
+          <p>
+            Al inicio hubo dudas sobre si realmente podían considerarse ciencias, porque el comportamiento humano cambia y no siempre se puede medir igual que un fenómeno natural. 
+            Sin embargo, con el tiempo demostraron que sí pueden estudiar la realidad de forma seria, siempre que usen procedimientos claros y bien explicados.
+          </p>
+        </div>
+      </article>
 
-  <div class="tema">
-    <img src="https://source.unsplash.com/800x400/?writing,study">
-    <h2>Normas APA</h2>
-    <p>
-      Las normas APA son un conjunto de reglas que ayudan a organizar trabajos escritos. 
-      Sirven para citar correctamente, ordenar la información y presentar el documento de forma clara. 
-      Su uso es muy importante en trabajos académicos porque evita errores y hace que el contenido sea más fácil de entender. 
-      También ayudan a mantener un mismo formato en todos los trabajos.
-    </p>
-  </div>
+      <article class="tema" id="busqueda">
+        <img src="img/busqueda.jpg" alt="Búsqueda de información en bases de datos">
+        <div class="tema-contenido">
+          <h2>Búsqueda de información en bases de datos</h2>
+          <p>
+            Buscar información en bases de datos es una parte muy importante de la investigación. 
+            No se trata solo de buscar cualquier dato en internet, sino de encontrar contenido más confiable, como artículos académicos, libros, tesis o estudios. 
+            Esto mejora la calidad del trabajo porque la información suele estar mejor revisada.
+          </p>
+          <p>
+            Una buena búsqueda requiere escribir bien el tema, usar palabras clave y revisar si la fuente realmente sirve para lo que se necesita. 
+            También es importante comparar varias fuentes para no quedarse con una sola idea. 
+            De esta manera, el trabajo tiene mejor base y más claridad.
+          </p>
+          <div class="organizador">
+            <div class="box">
+              <h3>Pasos básicos</h3>
+              <p>Buscar, revisar, comparar y seleccionar la información más útil.</p>
+            </div>
+            <div class="box">
+              <h3>Ventaja</h3>
+              <p>Permite usar información más confiable y mejor sustentada.</p>
+            </div>
+          </div>
+        </div>
+      </article>
 
-  <div class="tema">
-    <img src="https://source.unsplash.com/800x400/?logic,thinking">
-    <h2>Método deductivo</h2>
-    <p>
-      El método deductivo parte de una idea general y la aplica a un caso específico. 
-      Es decir, primero se tiene una regla o teoría y luego se comprueba en una situación concreta. 
-      Este método es útil cuando ya se tiene una base de conocimiento y se quiere ver cómo funciona en la práctica.
-    </p>
-  </div>
+      <article class="tema" id="reporte">
+        <img src="img/fuentes.jpg" alt="Reporte de fuentes bibliográficas">
+        <div class="tema-contenido">
+          <h2>Reporte de fuentes bibliográficas</h2>
+          <p>
+            El reporte de fuentes bibliográficas consiste en registrar de dónde se obtuvo la información utilizada en una investigación. 
+            Esto ayuda a mantener orden en el trabajo y demuestra que las ideas no fueron inventadas ni copiadas sin reconocer al autor. 
+            Además, permite que otras personas puedan revisar esas mismas fuentes si desean ampliar el tema.
+          </p>
+          <p>
+            Reportar las fuentes también da seriedad al trabajo, porque muestra que hubo una búsqueda real de información. 
+            Cuando se hace bien, ayuda a evitar el plagio y mejora la presentación del estudio. 
+            Por eso, esta parte es muy importante dentro de cualquier investigación académica.
+          </p>
+        </div>
+      </article>
 
-  <div class="tema">
-    <img src="https://source.unsplash.com/800x400/?analysis,data">
-    <h2>Método inductivo</h2>
-    <p>
-      El método inductivo hace lo contrario al deductivo. 
-      Empieza observando casos específicos y a partir de ellos saca una conclusión general. 
-      Es muy utilizado cuando se estudian hechos reales para luego formar una idea más amplia. 
-      Permite construir conocimiento a partir de la experiencia.
-    </p>
-  </div>
+      <article class="tema" id="apa">
+        <img src="img/apa.jpg" alt="Normas APA">
+        <div class="tema-contenido">
+          <h2>Normas APA</h2>
+          <p>
+            Las normas APA son reglas que sirven para organizar trabajos escritos. 
+            Se usan para presentar citas, referencias, títulos, márgenes y otros aspectos del documento. 
+            Son muy comunes en colegios, institutos y universidades porque ayudan a dar una mejor estructura al trabajo.
+          </p>
+          <p>
+            Su importancia está en que permiten reconocer las ideas de otros autores de forma correcta. 
+            También hacen que el documento se vea más ordenado y uniforme. 
+            Cuando una persona aplica APA, demuestra mayor cuidado en su presentación y evita problemas relacionados con el plagio.
+          </p>
+          <div class="organizador">
+            <div class="box">
+              <h3>¿Para qué sirven?</h3>
+              <p>Para citar, referenciar y presentar mejor un trabajo académico.</p>
+            </div>
+            <div class="box">
+              <h3>Beneficio</h3>
+              <p>Dan orden, claridad y respeto por las fuentes usadas.</p>
+            </div>
+          </div>
+        </div>
+      </article>
 
-  <div class="tema">
-    <img src="https://source.unsplash.com/800x400/?ideas,brain">
-    <h2>Método inductivo-deductivo</h2>
-    <p>
-      Este método combina el inductivo y el deductivo. 
-      Primero se observan casos particulares para crear una idea general y luego esa idea se aplica nuevamente a otros casos. 
-      Es una forma más completa de analizar la información porque permite comprobar lo aprendido.
-    </p>
-  </div>
+      <article class="tema" id="deductivo">
+        <img src="img/deductivo.jpg" alt="Método deductivo">
+        <div class="tema-contenido">
+          <h2>Método deductivo</h2>
+          <p>
+            El método deductivo parte de una idea general para llegar a un caso particular. 
+            Primero se tiene una teoría, regla o principio general, y luego se aplica a una situación más específica. 
+            Es un método muy útil cuando ya existe una base teórica y se quiere comprobar cómo funciona en un ejemplo concreto.
+          </p>
+          <p>
+            Este método permite ordenar el razonamiento de manera lógica. 
+            Ayuda a sacar conclusiones a partir de algo que ya se conoce de forma más amplia. 
+            Por eso, es común en investigaciones donde primero se revisan conceptos generales y luego se analizan casos puntuales.
+          </p>
+        </div>
+      </article>
 
-  <div class="tema">
-    <img src="https://source.unsplash.com/800x400/?experiment,science">
-    <h2>Método hipotético-deductivo</h2>
-    <p>
-      Este método comienza con una hipótesis, que es una posible respuesta a un problema. 
-      Luego se analiza si esa idea es correcta mediante pruebas o datos. 
-      Es muy importante en la investigación porque permite comprobar si una idea funciona en la realidad.
-    </p>
-  </div>
+      <article class="tema" id="inductivo">
+        <img src="img/inductivo.jpg" alt="Método inductivo">
+        <div class="tema-contenido">
+          <h2>Método inductivo</h2>
+          <p>
+            El método inductivo funciona al revés del deductivo. 
+            Comienza observando casos concretos, hechos o situaciones particulares, y a partir de ellos se forma una idea general. 
+            Es útil cuando la investigación parte de la realidad observada y busca llegar a una conclusión más amplia.
+          </p>
+          <p>
+            Este método es importante porque ayuda a construir conocimiento desde la experiencia y la observación. 
+            Por ejemplo, si se estudian varios casos que presentan características parecidas, se puede elaborar una conclusión general sobre ellos. 
+            Así, la investigación nace desde los datos y no solo desde una teoría previa.
+          </p>
+        </div>
+      </article>
 
-  <div class="tema">
-    <img src="https://source.unsplash.com/800x400/?analysis,study">
-    <h2>Método analítico</h2>
-    <p>
-      El método analítico consiste en dividir un tema en partes más pequeñas para entenderlo mejor. 
-      De esta forma se puede estudiar cada elemento por separado y ver su importancia. 
-      Es útil cuando un tema es complejo y necesita ser analizado con más detalle.
-    </p>
-  </div>
+      <article class="tema" id="inductivo-deductivo">
+        <img src="img/inductivo-deductivo.jpg" alt="Método inductivo-deductivo">
+        <div class="tema-contenido">
+          <h2>Método inductivo-deductivo</h2>
+          <p>
+            Este método combina los dos anteriores. 
+            Primero se observan hechos particulares para formar una idea general y luego esa idea se vuelve a aplicar a nuevos casos. 
+            Es decir, une la observación con el razonamiento lógico.
+          </p>
+          <p>
+            Esta combinación es útil porque permite una visión más completa del problema. 
+            No solo parte de lo que ya se sabe, sino también de lo que se observa en la realidad. 
+            Por eso, es un método bastante valioso cuando se quiere analizar un tema con mayor profundidad.
+          </p>
+        </div>
+      </article>
 
-  <div class="tema">
-    <img src="https://source.unsplash.com/800x400/?puzzle,solution">
-    <h2>Método sintético</h2>
-    <p>
-      El método sintético consiste en unir las partes para formar una idea completa. 
-      Después de analizar cada elemento, se juntan para obtener una conclusión general. 
-      Este método ayuda a tener una visión más clara y organizada del tema.
-    </p>
-  </div>
+      <article class="tema" id="hipotetico">
+        <img src="img/hipotetico.jpg" alt="Método hipotético-deductivo">
+        <div class="tema-contenido">
+          <h2>Método hipotético-deductivo</h2>
+          <p>
+            El método hipotético-deductivo parte de una hipótesis, es decir, de una posible respuesta o explicación frente a un problema. 
+            Después de plantearla, se revisa si esa idea es correcta por medio de datos, pruebas u observaciones. 
+            Su valor está en que permite poner a prueba una idea antes de aceptarla como válida.
+          </p>
+          <p>
+            Este método es muy utilizado en investigación porque ayuda a trabajar de manera ordenada. 
+            Primero se propone, luego se comprueba y al final se decide si la hipótesis se acepta o no. 
+            De esa manera, las conclusiones no quedan solo como opiniones, sino que se apoyan en evidencias.
+          </p>
+        </div>
+      </article>
 
-  <div class="tema">
-    <img src="https://source.unsplash.com/800x400/?strategy,planning">
-    <h2>Método analítico-sintético</h2>
-    <p>
-      Este método combina el análisis y la síntesis. 
-      Primero se separa el tema en partes para estudiarlo y luego se vuelve a unir. 
-      Es uno de los métodos más utilizados porque permite entender tanto los detalles como el conjunto.
-    </p>
-  </div>
+      <article class="tema" id="analitico">
+        <img src="img/analitico.jpg" alt="Método analítico">
+        <div class="tema-contenido">
+          <h2>Método analítico</h2>
+          <p>
+            El método analítico consiste en separar un tema en partes para estudiarlo mejor. 
+            Cuando un problema es amplio o complejo, dividirlo ayuda a entender con más claridad cada uno de sus elementos. 
+            Así se puede observar qué papel cumple cada parte dentro del conjunto.
+          </p>
+          <p>
+            Este método permite profundizar en los detalles y encontrar relaciones que quizá no se notan a simple vista. 
+            Por eso, es muy útil cuando se necesita estudiar un tema paso a paso, sin dejar de lado ningún aspecto importante.
+          </p>
+        </div>
+      </article>
 
-  <div class="tema">
-    <img src="https://source.unsplash.com/800x400/?history,compare">
-    <h2>Método histórico-comparativo</h2>
-    <p>
-      Este método estudia hechos del pasado y los compara con otros momentos. 
-      Permite entender cómo han cambiado las cosas con el tiempo. 
-      También ayuda a encontrar similitudes y diferencias entre distintos procesos.
-    </p>
-  </div>
+      <article class="tema" id="sintetico">
+        <img src="img/sintetico.jpg" alt="Método sintético">
+        <div class="tema-contenido">
+          <h2>Método sintético</h2>
+          <p>
+            El método sintético busca reunir las partes de un tema para formar una idea general. 
+            Después de analizar la información, este método ayuda a integrar todo y sacar una conclusión más completa. 
+            Su función principal es unir lo estudiado para darle sentido al conjunto.
+          </p>
+          <p>
+            Es útil porque no basta con estudiar las partes por separado; también es necesario comprender cómo se relacionan entre sí. 
+            Gracias a este método, se puede presentar una visión más clara y organizada del tema investigado.
+          </p>
+        </div>
+      </article>
 
-  <div class="tema">
-    <img src="https://source.unsplash.com/800x400/?statistics,data">
-    <h2>Método cualitativo-cuantitativo</h2>
-    <p>
-      Este método combina dos formas de investigación. 
-      La cualitativa analiza opiniones y experiencias, mientras que la cuantitativa trabaja con números y datos. 
-      Juntas permiten tener una visión más completa del tema y obtener mejores resultados.
-    </p>
-  </div>
+      <article class="tema" id="analitico-sintetico">
+        <img src="img/analitico-sintetico.jpg" alt="Método analítico-sintético">
+        <div class="tema-contenido">
+          <h2>Método analítico-sintético</h2>
+          <p>
+            El método analítico-sintético une dos procesos importantes: primero divide el tema para estudiarlo y luego vuelve a unirlo para comprenderlo mejor. 
+            Esto permite observar tanto los detalles como la idea general del problema.
+          </p>
+          <p>
+            Es uno de los métodos más completos, porque ayuda a investigar con orden y al mismo tiempo a sacar conclusiones más claras. 
+            Primero se analiza, después se organiza y finalmente se presenta una explicación más completa.
+          </p>
+        </div>
+      </article>
 
-</main>
+      <article class="tema" id="historico">
+        <img src="img/historico.jpg" alt="Método histórico-comparativo">
+        <div class="tema-contenido">
+          <h2>Método histórico-comparativo</h2>
+          <p>
+            El método histórico-comparativo estudia hechos del pasado y los compara con otros momentos o contextos. 
+            Su propósito es entender cómo cambian las situaciones con el tiempo y qué semejanzas o diferencias existen entre ellas.
+          </p>
+          <p>
+            Este método es muy útil cuando se quiere analizar procesos sociales, políticos, educativos o culturales. 
+            Al comparar, se puede comprender mejor la evolución de un problema y reconocer qué aspectos se mantienen y cuáles cambian.
+          </p>
+        </div>
+      </article>
+
+      <article class="tema" id="cualitativo">
+        <img src="img/cualitativo-cuantitativo.jpg" alt="Método cualitativo-cuantitativo">
+        <div class="tema-contenido">
+          <h2>Método cualitativo-cuantitativo</h2>
+          <p>
+            Este método reúne dos formas de investigar. 
+            La parte cualitativa se enfoca en opiniones, experiencias, ideas y significados. 
+            La parte cuantitativa trabaja con números, porcentajes, cantidades y datos medibles. 
+            Al combinar ambas, se obtiene una visión más completa del tema.
+          </p>
+          <p>
+            Su importancia está en que no se limita solo a contar o solo a describir. 
+            Más bien, permite entender lo que las personas piensan y también medir ciertos resultados. 
+            Por eso, es un método muy útil cuando se quiere estudiar un problema de forma más amplia.
+          </p>
+          <div class="organizador">
+            <div class="box">
+              <h3>Cualitativo</h3>
+              <p>Describe opiniones, experiencias y percepciones.</p>
+            </div>
+            <div class="box">
+              <h3>Cuantitativo</h3>
+              <p>Trabaja con números, medidas y resultados concretos.</p>
+            </div>
+            <div class="box">
+              <h3>Combinación</h3>
+              <p>Permite analizar mejor un tema desde dos formas distintas.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <section class="fuentes">
+      <h2>Fuentes de apoyo y consulta</h2>
+      <p style="margin-bottom: 12px;">
+        Estas son páginas generales de apoyo para consultar temas de investigación, búsqueda académica y formato APA:
+      </p>
+      <ul>
+        <li><a href="https://apastyle.apa.org/" target="_blank">https://apastyle.apa.org/</a></li>
+        <li><a href="https://scholar.google.com/" target="_blank">https://scholar.google.com/</a></li>
+        <li><a href="https://www.scielo.org/" target="_blank">https://www.scielo.org/</a></li>
+        <li><a href="https://dialnet.unirioja.es/" target="_blank">https://dialnet.unirioja.es/</a></li>
+        <li><a href="https://www.unesco.org/" target="_blank">https://www.unesco.org/</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Página web educativa sobre metodología de la investigación</p>
+  </footer>
 
 </body>
 </html>
